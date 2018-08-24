@@ -1,0 +1,19 @@
+name: {{ cookiecutter.conda_python_env}}
+
+channels:
+    - defaults
+    - conda-forge
+    - astropy
+
+dependencies:
+    - python>={{cookiecutter.minimum_python_version}}
+    - astropy
+    - sphinx >= 1.6
+    - pip
+    - pip:
+        - GitPython
+        - configparser
+        - sphinx-astropy
+        - sphinx-automodapi
+        - sphinx_rtd_theme
+        
