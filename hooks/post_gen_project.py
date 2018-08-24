@@ -16,7 +16,6 @@ def copy_file(original_filepath, new_filepath):
     shutil.copyfile(os.path.join(PROJECT_DIRECTORY, original_filepath),
                     os.path.join(PROJECT_DIRECTORY, new_filepath))
 
-
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 
 license_files = {"BSD 3-Clause": 'BSD3.rst',
@@ -24,7 +23,6 @@ license_files = {"BSD 3-Clause": 'BSD3.rst',
                  "Apache Software Licence 2.0": 'APACHE2.rst',
                  "BSD 2-Clause": 'BSD2.rst',
                  "MIT": 'MIT.rst'}
-
 
 def process_licence(licence_name):
     """
@@ -42,21 +40,7 @@ def process_licence(licence_name):
     ## Remove `licenses` folder
     shutil.rmtree(os.path.join(PROJECT_DIRECTORY, 'licenses'))
 
-def process_conf_docs():
-    """
-    Selects the correct `conf.py` file for the project documentation.
-    """
-    if '{{ cookiecutter.use_astropy_theme_or_RTD }}' == 'RTD':
-        shutil.copyfile(os.path.join(PROJECT_DIRECTORY, 'docs', 'read_docs', 'conf_rtd.py'),
-                        os.path.join(PROJECT_DIRECTORY, 'docs', 'conf.py'))
-    if '{{ cookiecutter.use_astropy_theme_or_RTD }}' == 'Astropy':
-        shutil.copyfile(os.path.join(PROJECT_DIRECTORY, 'docs', 'read_docs', 'conf_astropy.py'),
-                        os.path.join(PROJECT_DIRECTORY, 'docs', 'conf.py'))
-    ##
-    ## Removing `read_docs` folder
-    shutil.rmtree(os.path.join(PROJECT_DIRECTORY, 'docs','read_docs'))
-
-
+# Running command
 if __name__ == '__main__':
 
     process_licence('{{ cookiecutter.open_source_license }}')
@@ -68,9 +52,6 @@ if __name__ == '__main__':
         remove_file('.rtd-environment.yml')
         remove_file('readthedocs.yml')
     ##
-    ## Documentation
-    process_conf_docs()
-    ##
     ## Astropy Helpers
     try:
         from git import Repo
@@ -78,21 +59,9 @@ if __name__ == '__main__':
         new_repo = Repo.init(PROJECT_DIRECTORY)
         new_repo.git.add('.')
         new_repo.index.commit(
-            "Creation of {{ cookiecutter.repo_name }} from astropy package template"
+            "Creation of {{ cookiecutter.repo_name }} from MNRAS template"
         )
-        if '{{cookiecutter.use_astropy_theme_or_RTD}}' == 'Astropy':
-            astropy_helpers_version = "{% if cookiecutter.minimum_python_version == '2.7' %}v2.0.6{% else %}v3.0.1{% endif %}"
-            Repo.create_submodule(
-                new_repo, "astropy_helpers", "astropy_helpers",
-                "https://github.com/astropy/astropy-helpers.git",
-                "{}".format(astropy_helpers_version))
-            new_repo.submodules[0].update()
-            copy_file('astropy_helpers/ah_bootstrap.py', 'ah_bootstrap.py')
-            new_repo.git.add('ah_bootstrap.py')
-            new_repo.index.commit(
-                "Initialize astropy_helpers at version {}".format(
-                    astropy_helpers_version))
     except ImportError:
-        print(
-            "gitpython is not installed so the repository will not be initialised "
-            "and astropy_helpers not downloaded.")
+        err_msg  = 'gitpython is not installed. '
+        err_msg += 'The repository will not be initialized!'
+        print(err_msg)

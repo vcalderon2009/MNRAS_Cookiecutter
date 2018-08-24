@@ -10,11 +10,18 @@
         ".gitignore",
         "Extras/commands.tex",
         "Extras/packages.tex",
+        "Section_files/01_abstract.tex",
+        "Section_files/02_introduction.tex",
+        "Section_files/03_data_methods.tex",
+        "Section_files/04_results.tex",
+        "Section_files/05_summary_discussion.tex",
+        "Section_files/06_acknowledgements.tex",
         "Script_files/hyperlink-year-only-natbib-patch.tex",
         "Script_files/modify_bib.sh",
         "Script_files/nat2jour.pl",
-        "Style_files/macros_dc.sty"
         "Style_files/mnras.bst",
         "Style_files/mnras.cls",
+        "Paper/mnras.bst",
+        "Paper/mnras.cls",
         "requirements.txt"]
 }

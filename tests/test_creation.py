@@ -30,6 +30,38 @@ def default_baked_project(tmpdir):
     # cleanup after
     shutil.rmtree(out_dir)
 
+##
+## Testing for FILE existence
+##
+def test_gitignore(default_baked_project):
+    makefile_path = os.path.join(default_baked_project, '.gitignore')
+
+    assert os.path.exists(makefile_path)
+    assert no_curlies(makefile_path)
+
+def test_makefile(default_baked_project):
+    makefile_path = os.path.join(default_baked_project, 'Makefile')
+
+    assert os.path.exists(makefile_path)
+    assert no_curlies(makefile_path)
+
+def test_makefile_inc(default_baked_project):
+    makefile_path = os.path.join(default_baked_project, 'Makefile.inc')
+
+    assert os.path.exists(makefile_path)
+    assert no_curlies(makefile_path)
+
+def test_bibliography(default_baked_project):
+    reqs_path = os.path.join(default_baked_project, 'Mendeley.bib')
+
+    assert os.path.exists(reqs_path)
+    assert no_curlies(reqs_path)
+
+def test_license(default_baked_project):
+    license_path = os.path.join(default_baked_project, 'LICENSE')
+
+    assert os.path.exists(license_path)
+    assert no_curlies(license_path)
 
 def test_readme(default_baked_project):
     readme_path = os.path.join(default_baked_project, 'README.md')
@@ -38,45 +70,24 @@ def test_readme(default_baked_project):
     assert no_curlies(readme_path)
 
 
-def test_license(default_baked_project):
-    license_path = os.path.join(default_baked_project, 'LICENSE')
-
-    assert os.path.exists(license_path)
-    assert no_curlies(license_path)
-
-
 def test_requirements(default_baked_project):
     reqs_path = os.path.join(default_baked_project, 'requirements.txt')
 
     assert os.path.exists(reqs_path)
     assert no_curlies(reqs_path)
 
-
-def test_makefile(default_baked_project):
-    makefile_path = os.path.join(default_baked_project, 'Makefile')
-
-    assert os.path.exists(makefile_path)
-    assert no_curlies(makefile_path)
-
+##
+## Testing for FOLDER existence
+##
 
 def test_folders(default_baked_project):
     expected_dirs = [
-        'data',
-        os.path.join('data', 'external'),
-        os.path.join('data', 'interim'),
-        os.path.join('data', 'processed'),
-        os.path.join('data', 'raw'),
-        'docs',
-        'models',
-        'notebooks',
-        'references',
-        'reports',
-        os.path.join('reports', 'figures'),
-        'src',
-        os.path.join('src', 'data'),
-        os.path.join('src', 'features'),
-        os.path.join('src', 'models'),
-        os.path.join('src', 'visualization')
+        'Extras',
+        'Figures',
+        'Paper',
+        'Script_files',
+        'Section_files',
+        'Style_files'
     ]
 
     ignored_dirs = [
