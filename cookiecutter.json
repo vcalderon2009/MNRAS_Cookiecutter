@@ -8,6 +8,7 @@
     "repo_name": "{{ cookiecutter.author_last_name + '_' + cookiecutter.author_first_name + '_' + cookiecutter.paper_pubyear}}",
     "github_username": "vcalderon2009",
     "github_project": "{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}",
+    "open_source_license": ["MIT", "BSD 3-Clause", "GNU GPL v3+", "Apache Software Licence 2.0", "BSD 2-Clause"],
     "_copy_without_render": [   
         ".gitignore",
         "Extras/commands.tex",
