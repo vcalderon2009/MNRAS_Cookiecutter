@@ -86,8 +86,7 @@ def test_folders(default_baked_project):
         'Figures',
         'Paper',
         'Script_files',
-        'Section_files',
-        'Style_files'
+        'Section_files'
     ]
 
     ignored_dirs = [

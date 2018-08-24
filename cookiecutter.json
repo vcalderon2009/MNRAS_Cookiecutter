@@ -22,8 +22,6 @@
         "Script_files/hyperlink-year-only-natbib-patch.tex",
         "Script_files/modify_bib.sh",
         "Script_files/nat2jour.pl",
-        "Style_files/mnras.bst",
-        "Style_files/mnras.cls",
         "Paper/mnras.bst",
         "Paper/mnras.cls",
         "requirements.txt",
