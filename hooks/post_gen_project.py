@@ -44,15 +44,8 @@ def process_licence(licence_name):
 if __name__ == '__main__':
 
     process_licence('{{ cookiecutter.open_source_license }}')
-
-    if '{{ cookiecutter.use_travis_ci }}' != 'y':
-        remove_file('.travis.yml')
-
-    if '{{ cookiecutter.use_read_the_docs }}' != 'y':
-        remove_file('.rtd-environment.yml')
-        remove_file('readthedocs.yml')
     ##
-    ## Astropy Helpers
+    ## Initializing repository
     try:
         from git import Repo
 
