@@ -1,465 +1,145 @@
-\PassOptionsToPackage{pdfpagelabels=false}{hyperref} 
-\documentclass[useAMS,usenatbib, usedcolumn]{mnras}
-\pdfoutput=1 %for arxiv 
-\usepackage{graphicx}
-\usepackage{color}
-\usepackage{amsmath,amssymb,amstext}
-\usepackage[T1]{fontenc}
-\usepackage{mathptmx,txfonts}
-\usepackage[figure,figure*]{hypcap}
-\usepackage[most]{tcolorbox}
-\usepackage{ae,aecompl}
-\usepackage[normalem]{ulem} % Added by MS for \sout -> not required for final version
-\input{hyperlink-year-only-natbib-patch}
+%%
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Main MNRAS template for Cookicutter project
+%%
+%% Author: Victor F. Calderon (http://vcalderon.me)
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% ========== PREAMBLE ========== %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\listfiles
+\PassOptionsToPackage{pdfpagelabels=false}{hyperref}
+\documentclass[useAMS,usenatbib, usedcolumn]{mnras}
+\pdfoutput=1 %% Used by arXiv
+
+%% Include all packages
+\input{../Extras/packages}
+
+%% Include all commands
+\input{../Extras/commands}
+
+%% Include script to fix bibliography
+\input{../Script_files/hyperlink-year-only-natbib-patch.tex} 
+
+%% Program-specific configuration
+% PDF settings
 \hypersetup{
-    pdfauthor={Victor F. Calderon},
-    pdftitle={Main title},
+    pdfauthor={{ cookiecutter.author_first_name + '_' + cookiecutter.author_last_name}},
+    pdftitle={{ cookiecutter.paper_title}},
     pdfkeywords={cosmology: observations --- cosmology: large-scale structure 
             of Universe --- galaxies: groups --- galaxies:clusters
             --- methods: statistical, machine learning},
     colorlinks=true,
     citecolor=blue,
     linkcolor=magenta,
-    % filecolor=magenta,
-    urlcolor=cyan}
+    urlcolor=cyan
+}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%% ------ Modules ------ %%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
-\usepackage{array}
-\usepackage{afterpage}
-\usepackage{color}
-\usepackage{graphicx}
-\usepackage{amsmath, amssymb}
-\usepackage{soul,xcolor}
-\usepackage{epstopdf}
-\usepackage{units}
-\usepackage{relsize}
-\usepackage{enumitem}
-\usepackage{url}
-\usepackage{appendix}
-\usepackage{footnote}
-\usepackage{xspace}
-\usepackage{float}
+% Graphics path
+\graphicspath{{../Figures/}}
 
-\usepackage{booktabs}
-\usepackage{tabularx}
-
-\usepackage{color}
-\usepackage{graphicx}
-\usepackage{epstopdf}
-\usepackage{enumitem}
-\usepackage{xspace}
-\usepackage{float}
-\usepackage{booktabs}
-\usepackage{tabularx}
-
-\usepackage{relsize}
-\usepackage{array}
-\usepackage{afterpage}
-\usepackage{units}
-\usepackage{url}
-\usepackage{appendix}
-\usepackage{footnote}
-\usepackage{natbib}
-
-%%% Graphics path
-\graphicspath{{./Figures/}}
-
+%% Column-specific
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%% ------ Commands ------ %%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\setstcolor{red}
-\definecolor{change}{RGB}{255,3,3}
-\def\change {{\color{change}} }
-\def\starfpy {\textsc{StarfPy}}
-\newcommand{\refsec}[1]{$\S$\ref{#1}}
+%% Citation aliases
+%% - In here, you can add an alias to a specific citation
+%%
+%% Example:
+%%      \defcitealias{citation_key}{alias}
 
-\newcommand{\msun}{h^{-1}M_\odot}
-%\newcommand{\msunh}{\mbox{$h^{-1} \textrm{M}_{\odot}$}}
-% \newcommand{\kpch}{\mbox{$\textrm{kpc}/h$}}
-\newcommand{\hkpc}{\mbox{$h^{-1}\textrm{kpc}$}}
-\newcommand{\hmpc}{\mbox{$h^{-1}\textrm{Mpc}$} }
-\newcommand{\kmsMpc}{\mbox{$\textrm{km}\ \textrm{s}^{-1}\ \textrm{Mpc}^{-1}$}}
-% \newcommand{\mpch}{\mbox{$\textrm{kpc}/h$}}
-% \newcommand{\kms}{$\textrm{km}s^{-1}$}
-\newcommand{\hmpcthreeinv}{\mbox{$h^{3} \textrm{Mpc}^{-3}$}}
-\newcommand{\mstar}{\mbox{$\textrm{M}_{\star}$}}
-\newcommand{\gr}{\ensuremath{(g-r)}\xspace}
-\newcommand{\logssfr}{$\log\ \textrm{sSFR}$}
-\newcommand{\xirp}{$\xi(r_{p})$}
-\newcommand{\rband}{\textit{r}-band}
-\newcommand{\gband}{\textit{g}-band }
-\newcommand{\bfof}{\texttt{berlind-fof}\xspace}
-\newcommand{\MD}[1]{{\texttt Mr#1-SDSS}\xspace}
-\newcommand{\MM}[1]{{\texttt Mr#1-Mock}\xspace}
-\newcommand{\MR}[1]{{\texttt Mr#1}\xspace}
-\newcommand{\Mr}[1]{{Mr#1}\xspace}
-\newcommand{\mgroup}{\ensuremath{M_\textrm{group}}\xspace}
-\newcommand{\MPA}{MPA-JHU }
-\newcommand{\mcf}{\ensuremath{\mathcal{M}(r_{p})}\xspace}
-\newcommand{\mcft}{\texorpdfstring{\mcf}{MCF}}
-\newcommand{\sersic}{{S\'ersic}\xspace}
-% \newcommand{\onehn}{1-halo}
-% \newcommand{\twohn}{2-halo}
-%
-\newcommand{\failval}{-999 }
-\newcommand{\ssfr}{{sSFR}\xspace}
-\newcommand{\sfr}{{SFR}\xspace}
-\newcommand{\lcdm}{{\ensuremath{\Lambda}CDM}\xspace}
-\newcommand{\figwidth}{0.47}
-\newcommand{\figheight}{0.80}
-\newcommand{\catsurl}{\url{https://github.com/vcalderon2009/SDSS_Groups_ML}}
-\newcommand{\dsum}{\displaystyle \sum\limits}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% ========== Title Page ========== %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Please keep new commands to a minimum, and use \newcommand not \def to avoid
-% overwriting existing commands. Example:
-%\newcommand{\pcm}{\,cm$^{-2}$}	% per cm-squared
-\input{macros_dc.sty}
+%% Paper title
+\title{{ cookiecutter.paper_title}}
 
-% for comments:
-%% MS - had to define the color for my edits
-\definecolor{orange}{rgb}{1,0.5,0}
-\setlength{\marginparwidth}{1.2in}
-\let\oldmarginpar\marginpar
-\renewcommand\marginpar[1]{\-\oldmarginpar[\raggedleft\footnotesize #1]%
-{\raggedright\footnotesize #1}}
-
-%%% Here are the things that make collaborative effort easier
-\newcommand{\todo}[1]{\marginpar{\color{red}TODO}{\color{red}#1}}
-\newcommand{\ab}[1]{{\color{blue}{\bf AB:} #1}}
-\newcommand{\vc}[1]{{\color{cyan}{\bf VC:} #1}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%% Citing previous papers
-\defcitealias{Calderon2018}{C18}
-\defcitealias{Zu2016a}{Zu16}
-
-
-%%%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%
-
-% Title
-\title{Prediction of Cluster and Group masses in SDSS DR7 via a machine learning approach}
-% Authors
-\author[Calderon et al.]{%
-Victor F. Calderon$^{1}$\thanks{E-mail:  \mailto{victor.calderon@vanderbilt.edu}},
-Andreas A. Berlind$^{1}$\vspace*{0.2em} \\ 
-% List of Institutions
-$^{1}$Department of Physics and Astronomy, Vanderbilt University, Nashville, TN 37235, USA
+%% Author
+\author[{{ cookiecutter.author_last_name + 'et al. ' + cookiecutter.paper_pubyear}}]{%
+    %% Author List
+    %%
+    {{ cookiecutter.author_first_name + '_' + cookiecutter.author_last_name }}$^{1}$\thanks{Email: \mailto{ {{cookiecutter.author_email}} }}\\
+    %% 
+    %% List of Institutions
+    $^{1}$ {{ cookiecutter.author_affiliation }}
 }
 
-% These dates will be filled out by the publisher
+%%% These daets will be filled out by the publisher
 \date{Accepted XXX. Received YYY; in original form ZZZ}
 
-% Enter the current year, for the copyright statements etc.
-\pubyear{2018}
+%% Publication year
+%% -- Enter the current year, for the copyright statements, etc.
+\pubyear{ {{ cookiecutter.paper_pubyear}}}
 
-% Don't change these lines
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% ========== Starting document ========== %%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Don't change these lines
 \begin{document}
+
+% Defining color
+\setstcolor{red}
 \label{firstpage}
 \pagerange{\pageref{firstpage}--\pageref{lastpage}}
 \maketitle
 
-\begin{abstract}
-We present a machine learning approach (ML) for the prediction of 
-Cluster and Group masses with an improved performance over
-using conventional methods. We make use of synthetic catalogues
-that aim to emulate the clustering of galaxies and joint-distributions
-of properties of galaxis in the real Universe in order to train
-three ML algorithms to correctly predict cluster and galaxy group masses.
-\end{abstract}
 
-\begin{keywords}
-cosmology: observations --- cosmology: large-scale structure 
-            of Universe --- galaxies: groups --- galaxies:clusters
-            --- methods: statistical
-\end{keywords}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% ========== Abstract ========== %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%% ------     Introduction     ------ %%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{../Section_files/01_abstract.tex}
 
-\section{Introduction}
-\label{sec:intro}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% ========== Introduction ========== %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{itemize}[leftmargin=0.5\parindent, labelsep=0.5\parindent]
-    \item
-    Current literature on previous analyses that have used ML to
-    determine masses of galaxy groups and galaxy clusters.
+\input{../Section_files/02_introduction.tex}
 
-    \item
-    How has ML been used before to estimate properties of
-    galaxy groups. See `Paul2015'. Also see \citet{Ntampaka2015}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% ========== Data and Methods ========== %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\end{itemize}
+\input{../Section_files/03_data_methods.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%% ------     Data     ------ %%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% ========== Results ========== %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%% ============================================ %%%
-\section{Data and Methods}
-\label{sec:data_meas}
+\input{../Section_files/04_results.tex}
 
-\begin{itemize}[leftmargin=0.5\parindent, labelsep=0.5\parindent]
-    \item
-    Summarize the different subsections of the \textit{data} main section.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% ========== Summary and Discussion ========== %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    \item
-    Introduce the catalogues presented in \citet{Calderon2018}.
-    Especifically \S 2.1 - 2.3.
+\input{../Section_files/05_summary_discussion.tex}
 
-    \item
-    Characterize the different features that we use as part of the ML
-    training. Describe in depth the different \textit{features} used.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% ========== Acknowledgements ========== %%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\end{itemize}
+\input{../Section_files/06_acknowledgements.tex}
 
-In this section, we present the datasets used throughout this analysis,
-and introdue the main machine learning algorithms and statistical
-methods that we use to estimate the masses of galaxy groups and galaxy
-clusters. In \refsec{subsec:SDSS_galaxy_catalogues}, we briefly describe
-the SDSS galaxy sample and mock synthethic galaxy catalogues that we use,
-along with the parameters that are included in these catalogue. In
-\refsec{subsec:galprop_features}, we introduce the different \textit{features}
-that we use for training our ML predictors, and provide a guide on
-how these are calculated. Finally, in \refsec{subsec:ml_algorithms} we
-provide a brief overview of the different algorithms that we use in
-this analysis, as well as the default tuning parameters used by each
-algorithm.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% ========== Bibliography ========== %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-%%% ============================================ %%%
-%%% --- Galaxy sample and mock galaxy catalogues %%%
-%%% ============================================ %%%
-\subsection{SDSS Galaxy Sample and Mock Galaxy Catalogues}
-\label{subsec:SDSS_galaxy_catalogues}
-
-\begin{itemize}[leftmargin=0.5\parindent, labelsep=0.5\parindent]
-    \item
-    Introduce the catalogues used in this analysis
-    
-    \item
-    Reference to \citet{Calderon2018} about the mock catalogues 
-    used in this analysis.
-    
-    \item
-    Briefly mention how galaxy properties are assigned to mock
-    galaxies
-    
-    \item
-    Also mention the \textit{group-finding} step taken for each
-    galaxy group.
-\end{itemize}
-
-%%% ============================================ %%%
-%%% --- SDSS Galaxy Sample                       %%%
-%%% ============================================ %%%
-\subsubsection{SDSS Galaxy Sample}
-\label{subsubsec:NYU_DR7}
-
-
-%%% ============================================ %%%
-%%% --- Mock Galaxy catalogues                   %%%
-%%% ============================================ %%%
-\subsubsection{Mock Galaxy Catalogues}
-\label{subsubsec:Mock_Catls}
-
-
-%%% ============================================ %%%
-%%% --- Galaxy properties as 'features' ---      %%%
-%%% ============================================ %%%
-\subsection{Galaxy properties as \textit{features}}
-\label{subsec:galprop_features}
-
-\begin{itemize}[leftmargin=0.5\parindent, labelsep=0.5\parindent]
-    \item
-    In this section, I summarize the different \textit{features} used
-    during the training of the algorithms.
-
-\end{itemize}
-
-%%% ============================================ %%%
-%%% --- Machine Learning algorithms ---          %%%
-%%% ============================================ %%%
-\subsection{Machine Learning algorithms}
-\label{subsec:ml_algorithms}
-
-\begin{itemize}[leftmargin=0.5\parindent, labelsep=0.5\parindent]
-    \item
-    Talk about the different algorithms, i.e. Random Forest
-    \citet{Breiman2001}, XGBoost \citep{Chen2016}.
-
-    \item Have a separate section for each algorithm.
-\end{itemize}
-
-
-%%% ============================================ %%%
-%%% --- General Overview section ---             %%%
-%%% ============================================ %%%
-\subsubsection{General Overview}
-\label{subsub:ml_gen_overview}
-
-
-
-%%% ============================================ %%%
-%%% --- XGBoost section ---                      %%%
-%%% ============================================ %%%
-\subsubsection{XGBoost}
-\label{subsub:ml_xgboost}
-
-
-
-%%% ============================================ %%%
-%%% --- Random Forests section ---               %%%
-%%% ============================================ %%%
-\subsubsection{Random Forest}
-\label{subsub:ml_random_forest}
-
-
-
-%%% ============================================ %%%
-%%% --- Neural network section ---               %%%
-%%% ============================================ %%%
-\subsubsection{Neural network}
-\label{subsub:ml_neural_network}
-
-
-
-
-
-%%% ============================================ %%%
-%%% --- Results ---                              %%%
-%%% ============================================ %%%
-\section{Results}
-\label{sec:results}
-
-\begin{itemize}[leftmargin=0.5\parindent, labelsep=0.5\parindent]
-    \item
-    Include reference to \citet{Ivezic2014}
-
-    \item
-    Section on the different metrics used to evaluate how well the
-    algorithms are performing.
-
-    \item
-    Section on the different types of predictions for the different
-    types of models, i.e. different \textit{velocity bias} ($\sigma_{v}$)
-    and different \textit{HOD} models at fixed $\sigma_{v}$.
-\end{itemize}
-
-In this section, we present the results of the mass predictions for
-galaxy groups and galaxy clusters of SDSS DR7.
-
-
-%%% ============================================ %%%
-%%% --- Results --- Fixed HOD and Velocity Bias  %%%
-%%% ============================================ %%%
-\subsection{Fixed HOD and Velocity bias}
-\label{subsec:fixed_hod_dv}
-
-
-%%% ============================================ %%%
-%%% --- Results --- Varying HOD models  %%%
-%%% ============================================ %%%
-\subsection{Variations of HOD and Velocity Bias}
-\label{subsec:hod_dv_variations}
-
-
-%%% ============================================ %%%
-%%% --- Results --- Varying HOD models  %%%
-%%% ============================================ %%%
-\subsubsection{Varying HOD models}
-\label{subsubsec:fixed_dv_only}
-
-
-
-%%% ============================================ %%%
-%%% --- Results --- Varying HOD models  %%%
-%%% ============================================ %%%
-\subsubsection{Varying Velocity bias models}
-\label{subsubsec:fixed_HOD_only}
-
-
-
-
-
-
-
-
-%%% ============================================ %%%
-\section{Summary and Discussion}\label{sec:summary_discussion}
-
-\begin{itemize}[leftmargin=0.5\parindent, labelsep=0.5\parindent]
-    \item
-    Summarize all of the findings.
-
-    \item
-    Mention the website, at which the catalogues can be found.
-    
-\end{itemize}
-
-
-
-
-
-%%% ============================================ %%%
-\section{Acknowledgements}\label{sec:acknowledments}
-
-The mock catalogues used in this paper were produced by the LasDamas project 
-(\url{http://lss.phy.vanderbilt.edu/lasdamas/}); we thank NSF XSEDE for 
-providing the computational resources for LasDamas. Some of the 
-computational facilities used in this project were provided by the 
-Vanderbilt Advanced Computing Center for Research and Education (ACCRE). 
-This project has been supported by the National Science Foundation (NSF) 
-through a Career Award (AST-1151650). 
-Parts of this research were conducted by the Australian Research Council 
-Centre of Excellence for All Sky Astrophysics in 3 Dimensions (ASTRO 3D), 
-through project number CE170100013.
-This research has made use of 
-NASA's Astrophysics Data System. This work made use of the IPython package 
-\citep{Perez2007}, Scikit-learn \citep{McKinney2010}, SciPy 
-\citep{jones_scipy_2001}, matplotlib, a Python library for publication 
-quality graphics \citep{Hunter:2007}, Astropy, a community-developed 
-core Python package for Astronomy \citep{AstropyCollaboration2013}, and 
-NumPy \citep{VanDerWalt2011}. Funding for the SDSS and SDSS-II has been 
-provided by the Alfred P. Sloan Foundation, the Participating Institutions, 
-the National Science Foundation, the U.S. Department of Energy, 
-the National Aeronautics and Space Administration, the 
-Japanese Monbukagakusho, the Max Planck Society, and the Higher Education 
-Funding Council for England. The SDSS Web Site is http://www.sdss.org/. 
-The SDSS is managed by the Astrophysical Research Consortium for the 
-Participating Institutions. The Participating Institutions are the 
-American Museum of Natural History, Astrophysical Institute Potsdam, 
-University of Basel, University of Cambridge, Case Western Reserve 
-University, University of Chicago, Drexel University, Fermilab, the 
-Institute for Advanced Study, the Japan Participation Group, 
-Johns Hopkins University, the Joint Institute for Nuclear Astrophysics, 
-the Kavli Institute for Particle Astrophysics and Cosmology, 
-the Korean Scientist Group, the Chinese Academy of Sciences (LAMOST), 
-Los Alamos National Laboratory, the Max-Planck-Institute for Astronomy (MPIA), 
-the Max-Planck-Institute for Astrophysics (MPA), 
-New Mexico State University, Ohio State University, 
-University of Pittsburgh, University of Portsmouth, Princeton University, 
-the United States Naval Observatory, and the University of Washington. 
-These acknowledgements were compiled using the Astronomy Acknowledgement 
-Generator.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%% ------     Bibliography     ------ %%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \bibliographystyle{mn2e}
 \bibliographystyle{mnras}
 \bibliography{Mendeley}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% ========== End of document ========== %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % Don't change these lines
-\bsp	% typesetting comment
+\bsp    % typesetting comment
 \label{lastpage}
 \end{document}
