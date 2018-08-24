@@ -6,7 +6,7 @@
     "paper_title": "Paper Title",
     "paper_pubyear": "2018",
     "repo_name": "{{ cookiecutter.author_last_name + '_' + cookiecutter.author_first_name + '_' + cookiecutter.paper_pubyear}}",
-    "_copy_without_render": [
+    "_copy_without_render": [   
         ".gitignore",
         "Extras/commands.tex",
         "Extras/packages.tex",
@@ -23,5 +23,9 @@
         "Style_files/mnras.cls",
         "Paper/mnras.bst",
         "Paper/mnras.cls",
-        "requirements.txt"]
+        "requirements.txt",
+        "Makefile",
+        "Makefile.inc",
+        "Mendeley.bib"
+    ]
 }
