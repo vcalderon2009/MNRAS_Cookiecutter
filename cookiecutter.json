@@ -5,7 +5,7 @@
     "author_affiliation": "your_affiliation",
     "paper_title": "Paper Title",
     "paper_pubyear": "2018",
-    "repo_name": "{{ cookiecutter.author_last_name + '_' + cookiecutter.first_name + '_' + cookiecutter.paper_pubyear}}",
+    "repo_name": "{{ cookiecutter.author_last_name + '_' + cookiecutter.author_first_name + '_' + cookiecutter.paper_pubyear}}",
     "_copy_without_render": [
         ".gitignore",
         "Extras/commands.tex",
