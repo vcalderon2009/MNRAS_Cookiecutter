@@ -43,24 +43,34 @@ The directory structure of your new project looks like this:
 │    └── .gitkeep
 │
 ├── Paper
-│    └── paper.tex
+│    ├── mnras.bst -> ./Style_files/mnras.bst  <-- Soft link to MNRAS bibliography style.
+│    ├── mnras.cls -> ./Style_files/mnras.cls  <-- Soft link to MNRAS class file.
+│    └── paper.tex                             <- Main TeX file for compiling.
 │
 ├── Script_files
 │    ├── modify_bib.sh
-│    ├── hyperlink-year-only-natbib-patch.tex.
+│    ├── hyperlink-year-only-natbib-patch.tex. <- File that fixed the bibliography style.
 │    └── nat2jour.pl
 │
-├── Style_files
-│    ├── macros_dc.sty
-│    ├── mnras.bst
-│    └── mnras.cls
+├── Section_files
+│   ├── 01_abstract.tex                        <-- File for the 'abstract'.
+│   ├── 02_introduction.tex                    <-- File for the 'Introduction'.
+│   ├── 03_data_methods.tex                    <-- File for the 'Data and Methods'.
+│   ├── 04_results.tex                         <-- File for the 'Results'.
+│   ├── 05_summary_discussion.tex              <-- File for the 'Summary and Discussion'.
+│   └── 06_acknowledgements.tex                <-- File for the 'Acknowledgements'.
 │
-├── .gitignore <- File that dictates which files to ignore when using `git`.
-├── Makefile <- Makefile with commands like `make main.tex` or `make clean`.
-├── Makefile.inc <- File with input parameters for the `Makefile`.
-├── Mendeley.bib <- Bibliography of the project. You can replace this file if needed.
-├── README.md <- The top-level README for students
-└── requirements.txt <- File with a list of packages required for running this.
+├── Style_files
+│    ├── mnras.bst                             <-- MNRAS bibliography style file.
+│    └── mnras.cls                             <-- MNRAS class file.
+│
+├── .gitignore                                 <- File that dictates which files to ignore when using `git`.
+├── Makefile                                   <- Makefile with command, i.e. `make main.tex` or `make clean`
+├── Makefile.inc                               <- File with input parameters for the `Makefile`.
+├── Mendeley.bib                               <- Bibliography of the project. You can replace this file if needed.
+├── README.md                                  <- The top-level README for students
+├── LICENSE                                    <- License used for the distribution of the paper.
+└── requirements.txt                           <- File with a list of packages required for running this.
 ```
 
 ## Contributing
