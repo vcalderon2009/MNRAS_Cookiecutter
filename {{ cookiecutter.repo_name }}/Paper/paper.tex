@@ -61,7 +61,7 @@
 %% Author
 \author[{{ cookiecutter.author_last_name + 'et al. ' + cookiecutter.paper_pubyear}}]{
     % Author List
-    {{ cookiecutter.author_first_name + '_' + cookiecutter.author_last_name }}$^{1}$\thanks{Email: \mailto{ {{cookiecutter.author_email}} }}\\
+    {{ cookiecutter.author_name }}$^{1}$\thanks{Email: \mailto{{{ cookiecutter.author_email }}}}\\
     $^{1}$ {{ cookiecutter.author_affiliation}}
 }
 
@@ -84,7 +84,6 @@
 \label{firstpage}
 \pagerange{\pageref{firstpage}--\pageref{lastpage}}
 \maketitle
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%% ========== Abstract ========== %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -127,7 +126,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \bibliographystyle{mnras}
-\bibliography{Mendeley}
+\bibliography{Mendeley.bib}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%% ========== End of document ========== %%%%%%%%%%%%%%%%%%%%%
