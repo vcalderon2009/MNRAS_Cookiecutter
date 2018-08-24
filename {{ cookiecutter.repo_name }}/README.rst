@@ -10,8 +10,11 @@
 
 .. ----------------------------------------------------------------------------
 
-Project based on the `modified <https://github.com/vcalderon2009/https://github.com/vcalderon2009/MNRAS_Cookiecutter>`_
+Project based on the `modified <https://github.com/vcalderon2009/MNRAS_Cookiecutter>`_  version of the 
+`MNRAS LaTeX Template <https://www.overleaf.com/latex/templates/monthly-notices-of-the-royal-astronomical-society-mnras-latex-template-and-guide-for-authors/kqnjzrwjwjth>`_.
 
+
+.. ----------------------------------------------------------------------------
 
 .. |Issues| image:: https://img.shields.io/github/issues/{{cookiecutter.github_project}}.svg
    :target: https://github.com/{{cookiecutter.github_project}}/issues

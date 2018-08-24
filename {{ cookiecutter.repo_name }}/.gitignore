@@ -247,3 +247,7 @@ TSWLatexianTemp*
 
 # standalone packages
 *.sta
+
+# Generated PDF
+Paper/paper.pdf
+requirements_pre.txt
