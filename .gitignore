@@ -353,3 +353,7 @@ TSWLatexianTemp*
 
 # standalone packages
 *.sta
+
+# Media
+*.mov
+media
