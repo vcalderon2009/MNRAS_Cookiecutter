@@ -1,4 +1,4 @@
-name: {{ cookiecutter.conda_python_env}}
+name: mnras_cookiecutter_env
 
 channels:
     - defaults
