@@ -3,8 +3,8 @@
 https://github.com/vcalderon2009/MNRAS_Cookiecutter/blob/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/vcalderon2009/MNRAS_Cookiecutter.svg)](
 https://github.com/vcalderon2009/MNRAS_Cookiecutter/issues)
-
-
+[![PDF latest](https://img.shields.io/badge/PDF-Latest-orange.svg)](
+https://cdn.rawgit.com/vcalderon2009/MNRAS_Cookiecutter/777d6518/docs/documents/MNRAS_output_example.pdf)
 
 
 # Cookiecutter - Template for MNRAS Paper
