@@ -11,6 +11,9 @@ Downloading and Creating your own Paper
 **Description**: An easy, reasonably standardized, but flexible template for creating paper for
 the `Monthly Notices of the Royal Astronomical society <https://academic.oup.com/mnras>`_
 
+.. contents:: Table of Contents
+    :local:
+
 .. _install_requirements:
 
 ============================================
