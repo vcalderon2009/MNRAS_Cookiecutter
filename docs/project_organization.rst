@@ -18,8 +18,8 @@ The organization of the project is the following:
         │    └── .gitkeep
         │
         ├── Paper
-        │    ├── mnras.bst -> ./Style_files/mnras.bst  <-- Soft link to MNRAS bibliography style.
-        │    ├── mnras.cls -> ./Style_files/mnras.cls  <-- Soft link to MNRAS class file.
+        │    ├── mnras.bst                             <-- MNRAS bibliography style file.
+        │    ├── mnras.cls                             <-- MNRAS class file.
         │    └── paper.tex                             <- Main TeX file for compiling.
         │
         ├── Script_files
@@ -34,10 +34,6 @@ The organization of the project is the following:
         │   ├── 04_results.tex                         <-- File for the 'Results'.
         │   ├── 05_summary_discussion.tex              <-- File for the 'Summary and Discussion'.
         │   └── 06_acknowledgements.tex                <-- File for the 'Acknowledgements'.
-        │
-        ├── Style_files
-        │    ├── mnras.bst                             <-- MNRAS bibliography style file.
-        │    └── mnras.cls                             <-- MNRAS class file.
         │
         ├── .gitignore                                 <- File that dictates which files to ignore when using `git`.
         ├── Makefile                                   <- Makefile with command, i.e. `make main.tex` or `make clean`
