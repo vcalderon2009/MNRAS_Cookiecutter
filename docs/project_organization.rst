@@ -49,15 +49,15 @@ The organization of the project is the following:
 
 .. ----------------------------------------------------------------------------
 
-Project based on the `modified <https://github.com/vcalderon2009/MNRAS_Cookiecutter>`_  version of the 
+Project based on the `modified <https://github.com/vcalderon2009/MNRAS_Cookiecutter>`_  version of the
 `MNRAS LaTeX Template <https://www.overleaf.com/latex/templates/monthly-notices-of-the-royal-astronomical-society-mnras-latex-template-and-guide-for-authors/kqnjzrwjwjth>`_.
 
-.. |Issues| image:: https://img.shields.io/github/issues/{{cookiecutter.github_project}}.svg
+.. |Issues| image:: https://img.shields.io/github/issues/vcalderon2009/MNRAS_Cookiecutter.svg
    :target: https://github.com/vcalderon2009/MNRAS_Cookiecutter/issues
    :alt: Open Issues
 
-.. |RTD| image:: https://readthedocs.org/projects/{{cookiecutter.repo_name|lower|replace(' ', '-')|replace('_', '-')}}/badge/?version=latest
-   :target: https://readthedocs.org/projects/{{cookiecutter.repo_name|lower|replace(' ', '-')|replace('_', '-')}}/badge/?version=latest
+.. |RTD| image:: https://readthedocs.org/projects/mnras-cookiecutter/badge/?version=latest
+   :target: https://mnras-cookiecutter.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation Status
 
 .. |License| image:: https://img.shields.io/badge/license-MIT-blue.svg

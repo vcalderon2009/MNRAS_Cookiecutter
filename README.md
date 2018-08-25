@@ -1,3 +1,7 @@
+[![Documentation Status](https://readthedocs.org/projects/mnras-cookiecutter/badge/?version=latest)](https://mnras-cookiecutter.readthedocs.io/en/latest/?badge=latest)
+
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/vcalderon2009/MNRAS_Cookiecutter/blob/master/LICENSE)
+
 # Cookiecutter - Template for MNRAS Paper
 
 _An easy, reasonably standardized, but flexible template for creating paper for 
