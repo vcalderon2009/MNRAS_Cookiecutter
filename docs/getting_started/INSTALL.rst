@@ -81,8 +81,8 @@ The different prompts are:
 |                            |                                                                          |
 |                            | Examples:                                                                |
 |                            |                                                                          |
-|                            | * Adam                                                                   |
-|                            | * Rose                                                                   |
+|                            | * Adam Sanchez                                                           |
+|                            | * Rose Roserberg                                                         |
 +----------------------------+--------------------------------------------------------------------------+
 |:code:`author_email`        | Author's first name. :code:`author_email` will used                      |
 |                            | for the *title page* of the paper.                                       |
@@ -161,7 +161,7 @@ Using the Template
 =====================
 
 Now that one has answered the questions from :ref:`creating_new_paper`,
-you just need to fill in the documents in ``Section_files`` directory
+you just need to fill in the documents in the ``Section_files`` directory
 according to your project's needs.
 
 The structure of the finalized project can be found in the
