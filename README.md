@@ -1,4 +1,6 @@
-[![Documentation Status](https://readthedocs.org/projects/mnras-cookiecutter/badge/?version=latest)](https://mnras-cookiecutter.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](
+https://readthedocs.org/projects/mnras-cookiecutter/badge/?version=latest)](
+https://mnras-cookiecutter.readthedocs.io/en/latest/?badge=latest)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](
 https://github.com/vcalderon2009/MNRAS_Cookiecutter/blob/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/vcalderon2009/MNRAS_Cookiecutter.svg)](
