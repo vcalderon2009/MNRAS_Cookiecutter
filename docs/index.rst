@@ -1,4 +1,4 @@
-|RTD| |License| |Issues|
+|RTD| |License| |Issues| |PDF_Latest|
 
 .. _MAIN_SEC:
 
@@ -49,3 +49,7 @@ Project based on the `modified <https://github.com/vcalderon2009/MNRAS_Cookiecut
 .. |License| image:: https://img.shields.io/badge/license-MIT-blue.svg
    :target: https://github.com/vcalderon2009/MNRAS_Cookiecutter/blob/master/LICENSE
    :alt: Project License
+
+.. |PDF_Latest| image:: https://img.shields.io/badge/PDF-Latest-orange.svg
+   :target: https://cdn.rawgit.com/vcalderon2009/MNRAS_Cookiecutter/777d6518/docs/documents/MNRAS_output_example.pdf
+   :alt: PDF Latest
