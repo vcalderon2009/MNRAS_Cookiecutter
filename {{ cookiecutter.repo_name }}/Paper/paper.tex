@@ -29,7 +29,7 @@
 %% Program-specific configuration
 % PDF settings
 \hypersetup{
-    pdfauthor={{ cookiecutter.author_first_name + '_' + cookiecutter.author_last_name}},
+    pdfauthor={{ cookiecutter.author_name }},
     pdftitle={{ cookiecutter.paper_title}},
     pdfkeywords={cosmology: observations --- cosmology: large-scale structure 
             of Universe --- galaxies: groups --- galaxies:clusters
@@ -59,7 +59,7 @@
 \title{ {{ cookiecutter.paper_title}} }
 
 %% Author
-\author[{{ cookiecutter.author_last_name + 'et al. ' + cookiecutter.paper_pubyear}}]{
+\author[{{ cookiecutter.author_last_name + ' et al. ' + cookiecutter.paper_pubyear}}]{
     % Author List
     {{ cookiecutter.author_name }}$^{1}$\thanks{Email: \href{mailto:{{ cookiecutter.author_email }}}{ {{ cookiecutter.author_email.replace('_', '\_' ) }} } }\\
     $^{1}$ {{ cookiecutter.author_affiliation}}
